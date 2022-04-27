@@ -1,0 +1,59 @@
+package ID_200037471_315006254;
+
+import java.util.ArrayList;
+
+public class Set<T extends AmericanQuestionAnswer>  {
+
+	private ArrayList<T> arr;
+
+	public Set() {
+		arr = new ArrayList<>();
+	}
+
+	public boolean add(T temp) {
+		for (T saved : arr) {
+			if (saved.equals(temp))
+				return false;
+		}
+		arr.add(temp);
+		return true;
+	}
+
+	public boolean update(int index, T temp) {
+		int length = arr.size();
+		if (length < 1 || index > length) {
+			return false;
+		}
+		if (arr.contains(temp)) {
+			return false;
+		} else {
+			arr.set(index, temp);
+			return true;
+		}
+
+	}
+
+	public boolean delete(int index) {
+		int length = arr.size();
+		if (length < 1 || index > length) {
+			return false;
+		}
+		arr.remove(index);
+		return true;
+
+	}
+
+	public int Length() {
+		return arr.size();
+
+	}
+
+	public T get(int index) {
+		return arr.get(index);
+	}
+
+	public ArrayList<T> setToArrayList() {
+		return arr;
+	}
+	
+}
